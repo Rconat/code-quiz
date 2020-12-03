@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coding Quiz</title>
 </head>
 <body>
     <header>
@@ -14,15 +14,27 @@
     </header>
     <div class="quiz">
         <!-- Quiz Intro -->
-        
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+            Answer as many coding questions as you can before the time runs out. But be careful, every wrong answer will result in a 5 second penalty! Shoot for your personal best score and add your initials to the Highscores list.
+        </p>
         <!-- Question Template -->
             <!-- Question -->
             <!-- ol // buttons -->
-        
+            <ol id='answerList'>
+                <li id='firstAnswer'></li>
+                <li id='secondAnswer'></li>
+                <li id='thirdAnswer'></li>
+                <li id='fourthAnswer'></li>
+            </ol>
+        <div id='answerResult'>
+            <p></p>
+        </div>
     </div>
     <div class="globalControls">
         <!-- start Quiz Button-->
         <button id='startQuizBtn'>Start Quiz</button>
+        <button id='clearHighscores'>Clear Highscores</button>
     </div>
 
     <script src="script.js"></script>

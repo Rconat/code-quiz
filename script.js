@@ -14,7 +14,7 @@ var count = 75
         count--
         countdownTimer.innerText = count + ' seconds left'
         console.log(count + ' seconds left')
-    }, 10000)
+    }, 1000)
 
     // Ask JavaScript questions while 
         // For each correct answer add 1 to the score
