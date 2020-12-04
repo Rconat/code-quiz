@@ -3,6 +3,8 @@ var startQuiz = document.getElementById('startQuizBtn')
 var countdownTimer = document.getElementById('countdownTimer')
 var restartQuiz = document.getElementById('restartQuizBtn')
 
+var answerResult = document.getElementById('answerResult')
+
 var count = 75;
 var currentQuestion = 0
 
@@ -84,14 +86,31 @@ function startQuizFunction() {
 
     // display question
     // create buttons
+    generateBtns()
     // on click
-        // For each correct answer add 1 to the score
-        // currentScore++
+        // For each correct answer
+        if ("clicked button".innerText === quizQuestions[currentQuestion].answer) {
+            answerResult.innerText = 'Correct answer'
+            // add 1 to the score
+            currentScore++
+            // move to next question
+            currentQuestion++
+        } 
         // For each wrong answer subtract time from the countdown timer
+        else {
+            answerResult.innerText = 'Wrong answer'
+            // decrease countdown by 5 sec
+            count=count-5
+            // move to next question
+            currentQuestion++
+        }
+        
+
         // count-5
     // move to next question
+    // currentQuestion++
         
-    }
+}
 
 function generateBtns() {
     for (var i =0; i < choices.length; i++) {
