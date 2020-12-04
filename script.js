@@ -61,13 +61,15 @@ var quizQuestions = [
 
 // Score variables
 var currentScore = 0;
+var finalScore = 0
 
 startQuiz.addEventListener('click', startQuizFunction);
 // function runs on startQuiz click
 function startQuizFunction() {
 
-    // clear the quiz setup information
+    // clear the quiz setup information and display quiz
     clearQuizTitle()
+    showQuizQuestions()
 
     // Timer starting time
     countdownTimer.innerText = count + ' seconds left'
@@ -79,14 +81,14 @@ function startQuizFunction() {
         // When timer runs out
         if (count <= 0) {
             // console.log ("inside")
-            var finalScore = currentScore
+            finalScore = currentScore
             // Display final score
             alert("Quiz Complete: Your final score is " + finalScore)
             // Display Scoreboard
         }
     }, 1000)
     // Ask quiz questions
-    if (currentQuestion > quizQuestions.length) {
+    if (currentQuestion < quizQuestions.length) {
         var questionNumberDisplay = document.getElementById('questionNumber')
         questionNumberDisplay.innerText = (currentQuestion + 1)
         var questionTextDisplay = document.getElementById('questionText')
@@ -116,11 +118,10 @@ function startQuizFunction() {
 }
 
 function generateBtns() {
-    for (var i =0; i < choices.length; i++) {
+    for (var i =0; i < quizQuestions[currentQuestion].choices.length; i++) {
         var options = document.createElement("buttons")
-        var choices = quizQuestions.choices
-        document.body.appendChild(option);
-        options.innerHTML = choices[i]
+        document.body.appendChild(options);
+        options.innerHTML = quizQuestions[currentQuestion].choices[i]
     }
 }
 
@@ -139,5 +140,9 @@ function restartQuizFunction() {
 }
 
 function clearQuizTitle() {
-    document.querySelectorAll('.quizIntro').className.add('hidden');
+    document.querySelector('.quizIntro').classList.add('hidden');
+}
+
+function showQuizQuestions() {
+    document.querySelector('.quizQuestions').classList.toggle('hidden');
 }
