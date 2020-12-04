@@ -139,10 +139,13 @@ function restartQuizFunction() {
     }
 }
 
+
+// function to hide the challenge information
 function clearQuizTitle() {
     document.querySelector('.quizIntro').classList.add('hidden');
 }
 
+//function to show the quiz questions
 function showQuizQuestions() {
     document.querySelector('.quizQuestions').classList.toggle('hidden');
 }
