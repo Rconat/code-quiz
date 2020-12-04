@@ -1,7 +1,7 @@
 .hidden {
-    display: hidden
+    display: none;
 }
 
 .show {
-    display: block
+    display: block;
 }

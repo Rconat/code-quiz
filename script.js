@@ -66,6 +66,9 @@ startQuiz.addEventListener('click', startQuizFunction);
 // function runs on startQuiz click
 function startQuizFunction() {
 
+    // clear the quiz setup information
+    clearQuizTitle()
+
     // Timer starting time
     countdownTimer.innerText = count + ' seconds left'
     // Create a running timer that counts down when agree to take the quiz
@@ -78,13 +81,16 @@ function startQuizFunction() {
             // console.log ("inside")
             var finalScore = currentScore
             // Display final score
-            alert("Quiz Complete: Your Score final score is " + finalScore)
+            alert("Quiz Complete: Your final score is " + finalScore)
             // Display Scoreboard
         }
     }, 1000)
-    // Ask JavaScript questions
-
-    // display question
+    // Ask quiz questions
+    if (currentQuestion > quizQuestions.length) {
+        var questionNumberDisplay = document.getElementById('questionNumber')
+        questionNumberDisplay.innerText = (currentQuestion + 1)
+        var questionTextDisplay = document.getElementById('questionText')
+        questionTextDisplay.innerText = quizQuestions[currentQuestion].question
     // create buttons
     generateBtns()
     // on click
@@ -104,11 +110,15 @@ function startQuizFunction() {
             // move to next question
             currentQuestion++
         }
+    } else {
+        alert ("Quiz Complete: Your final score is " + finalScore)
+    }
 }
 
 function generateBtns() {
     for (var i =0; i < choices.length; i++) {
         var options = document.createElement("buttons")
+        var choices = quizQuestions.choices
         document.body.appendChild(option);
         options.innerHTML = choices[i]
     }
@@ -126,4 +136,8 @@ function restartQuizFunction() {
         count = 75;
         startQuizFunction()
     }
+}
+
+function clearQuizTitle() {
+    document.querySelectorAll('.quizIntro').className.add('hidden');
 }
