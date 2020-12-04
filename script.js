@@ -104,12 +104,6 @@ function startQuizFunction() {
             // move to next question
             currentQuestion++
         }
-        
-
-        // count-5
-    // move to next question
-    // currentQuestion++
-        
 }
 
 function generateBtns() {
