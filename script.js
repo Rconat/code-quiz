@@ -3,6 +3,9 @@ var startQuiz = document.getElementById('startQuizBtn')
 var countdownTimer = document.getElementById('countdownTimer')
 var restartQuiz = document.getElementById('restartQuizBtn')
 
+var count = 75;
+var currentQuestion = 0
+
 // Quiz Questions and answers
     // Sourced Questions from "https://www.codeconquest.com/coding-quizzes/"
 var quizQuestions = [
@@ -60,28 +63,41 @@ var currentScore = 0;
 startQuiz.addEventListener('click', startQuizFunction);
 // function runs on startQuiz click
 function startQuizFunction() {
+
     // Timer starting time
-    var count = 75;
     countdownTimer.innerText = count + ' seconds left'
     // Create a running timer that counts down when agree to take the quiz
     setInterval(function() {
-        count--
+        count-=1
         countdownTimer.innerText = count + ' seconds left'
         console.log(count + ' seconds left')
-    }, 1000)
-
-     // Ask JavaScript questions while 
-        // For each correct answer add 1 to the score
-        // currentScore++
-        // For each wrong answer subtract time from the countdown timer
-        // count-5
-
         // When timer runs out
-    if (count <= 0) {
+        if (count <= 0) {
+            // console.log ("inside")
             var finalScore = currentScore
             // Display final score
             alert("Quiz Complete: Your Score final score is " + finalScore)
             // Display Scoreboard
+        }
+    }, 1000)
+    // Ask JavaScript questions
+
+    // display question
+    // create buttons
+    // on click
+        // For each correct answer add 1 to the score
+        // currentScore++
+        // For each wrong answer subtract time from the countdown timer
+        // count-5
+    // move to next question
+        
+    }
+
+function generateBtns() {
+    for (var i =0; i < choices.length; i++) {
+        var options = document.createElement("buttons")
+        document.body.appendChild(option);
+        options.innerHTML = choices[i]
     }
 }
 

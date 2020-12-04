@@ -13,24 +13,19 @@
         <!-- Countdown Timer -->
         <h2 id='countdownTimer'>Timer</h2>
     </header>
-    <div class="quiz">
+    <div class="quizIntro">
         <!-- Quiz Intro -->
         <h1>Coding Quiz Challenge</h1>
         <p>
             Answer as many coding questions as you can before the time runs out. But be careful, every wrong answer will result in a 5 second penalty! Shoot for your personal best score and add your initials to the Highscores list.
         </p>
+    </div>
         <!-- Question Template -->
-            <!-- Question -->
-            <!-- ol // buttons -->
-            <ol id='answerList'>
-                <li id='firstAnswer'></li>
-                <li id='secondAnswer'></li>
-                <li id='thirdAnswer'></li>
-                <li id='fourthAnswer'></li>
-            </ol>
-        <div id='answerResult'>
-            <p></p>
-        </div>
+    <div class="quizQuestions hidden">
+        <h2 id="question">Question: <span id="questionNumber"></span> - <span id="questionText"></span></h1>
+        <div id="answerSelection"></div>
+    </div>
+    <div id='answerResult'>
     </div>
     <div class="globalControls">
         <!-- start Quiz Button-->
